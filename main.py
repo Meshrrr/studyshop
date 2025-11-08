@@ -1,6 +1,4 @@
-from typing import Annotated
-from fastapi import FastAPI, Path
-from pydantic import BaseModel, EmailStr
+from fastapi import FastAPI
 import uvicorn
 
 from items_views import router as items_router
@@ -13,9 +11,8 @@ app.include_router(users_router)
 
 @app.get("/")
 def hello_index():
-    return {
-        "message": "Hello, index!"
-    }
+    return {"message": "Hello, index!"}
+
 
 @app.get("/hello/")
 def hello(name: str = "World"):
@@ -23,5 +20,5 @@ def hello(name: str = "World"):
     return {"message": f"Hello {name}"}
 
 
-#if __name__ == '__main__':
- #   uvicorn.run("main:app", reload=True)
+# if __name__ == '__main__':
+#   uvicorn.run("main:app", reload=True)
